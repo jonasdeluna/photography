@@ -16,7 +16,7 @@ layout: default
     </header>
 
 <div id="main" data-exif='{{ site.exif }}'>
-    {% assign items = site.static_files | sort: "date" | reverse %}
+    {% assign items = site.static_files | sort: "name" %}
     {% for image in items %}
     {% if image.path contains "fulls" %}
     <article class="thumb">
