@@ -15,21 +15,20 @@ layout: default
         </nav>
     </header>
 
-    <!-- Main -->
-    <div id="main" data-exif='{{ site.exif }}'>
-        {% assign items = site.static_files | sort: 'date' %}
-        {% for image in items %}
-        {% if image.path contains 'fulls' %}
-        <article class="thumb">
-            <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
-                <img src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
-                     data-name="{{ image.name }}"/></a>
-            <!--<h2></h2>
-            <p></p>-->
-        </article>
-        {% endif %}
-        {% endfor %}
-    </div>
+<div id="main" data-exif='{{ site.exif }}'>
+    {% assign items = site.static_files | sort: "modified_time" | reverse %}
+    {% for image in items %}
+    {% if image.path contains "fulls" %}
+    <article class="thumb">
+        <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
+            <img src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
+                 data-name="{{ image.name }}"/>
+        </a>
+    </article>
+    {% endif %}
+    {% endfor %}
+</div>
+
 
     <!-- Footer -->
     <footer id="footer" class="panel">
