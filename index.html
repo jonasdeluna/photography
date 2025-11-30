@@ -17,7 +17,8 @@ layout: default
 
     <!-- Main -->
     <div id="main" data-exif='{{ site.exif }}'>
-        {% for image in site.static_files %}
+        {% assign items = site.static_files | sort: 'date' %}
+        {% for image in items %}
         {% if image.path contains 'fulls' %}
         <article class="thumb">
             <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
