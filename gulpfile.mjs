@@ -18,7 +18,7 @@ const generatedCssFiles = [
 ];
 
 gulp.task('delete', function () {
-    return del(['images/*.*']);
+    return null
 });
 
 gulp.task('resize-images', function () {
