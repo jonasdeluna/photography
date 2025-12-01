@@ -3,7 +3,6 @@ baseurl: "https://jonasdeluna.github.io/photography/"
 # baseurl: "" # Comment the above line and uncomment this to test the website locally
 image_fulls_loc: "/images/fulls"
 image_thumbs_loc: "/images/thumbs"
-google_analytics: "UA-46465113-2"
 
 # UI configs
 title: "Photo Gallery"
@@ -23,4 +22,4 @@ social_urls:
 
 # Configure which exif data to display
 # Tag is the actual exif tag, icon is a fontawesome icon. Use JSON notation without line breaks
-exif: '[{"tag": "Model", "icon": "fa fa-camera-retro"}, {"tag": "FNumber", "icon": "far fa-dot-circle"}, {"tag": "ExposureTime", "icon": "far fa-clock"}, {"tag": "ISOSpeedRatings", "icon": "fa fa-info-circle"}, {"tag": "FocalLength", "icon": "fa fa-ruler"}]'
+exif: '[{"tag": "Model", "icon": "fas fa-camera-retro"}, {"tag": "FNumber", "icon": "fas fa-dot-circle"}, {"tag": "ExposureTime", "icon": "fas fa-clock"}, {"tag": "ISOSpeedRatings", "icon": "fas fa-info-circle"}, {"tag": "FocalLength", "icon": "fas fa-ruler"}]'
