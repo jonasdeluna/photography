@@ -199,8 +199,8 @@
 
       if ($img.data("film") === true || $img.data("film") === "true") {
         return (
-          '<div class="exif-data">' +
-          '<i class="fas fa-film" aria-hidden="true"></i> Film' +
+          '<div class="exif-data" style="color:#fff;font-weight:900;">' +
+          '<i class="fas fa-film" aria-hidden="true" style="font-weight:900;"></i> Film' +
           "</div>"
         );
       }
