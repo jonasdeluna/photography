@@ -195,6 +195,15 @@
   // Build EXIF markup using data from #main data('exif') mapping (preserves original behavior)
   function getExifDataMarkup(img) {
     try {
+      var key = getImageKey($(img));
+      if (key.endsWith("-film.jpg")) {
+        return `
+        <div class="exif-data">
+          <i class="fas fa-film" aria-hidden="true"></i> Film
+        </div>
+      `;
+      }
+
       var exifMap = $main.data("exif") || {};
       var template = "";
       for (var current in exifMap) {
