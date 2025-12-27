@@ -195,8 +195,9 @@
   // Build EXIF markup using data from #main data('exif') mapping (preserves original behavior)
   function getExifDataMarkup(img) {
     try {
-      var key = getImageKey($(img));
-      if (key.endsWith("-film.jpg")) {
+      var $img = $(img);
+
+      if ($img.data("film") === true || $img.data("film") === "true") {
         return `
         <div class="exif-data">
           <i class="fas fa-film" aria-hidden="true"></i> Film
@@ -206,19 +207,23 @@
 
       var exifMap = $main.data("exif") || {};
       var template = "";
+
       for (var current in exifMap) {
         if (!exifMap.hasOwnProperty(current)) continue;
+
         var current_data = exifMap[current];
-        var exif_data = EXIF.getTag(img, current_data["tag"]);
+        var exif_data = EXIF.getTag(img, current_data.tag);
+
         if (typeof exif_data !== "undefined") {
           template +=
             '<i class="' +
-            (current_data["icon"] || "") +
+            (current_data.icon || "") +
             '" aria-hidden="true"></i> ' +
             exif_data +
             "&nbsp;&nbsp;";
         }
       }
+
       return template;
     } catch (e) {
       console.warn("getExifDataMarkup error", e);

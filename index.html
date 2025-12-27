@@ -16,18 +16,30 @@ layout: default
     </header>
 
 <div id="main" data-exif='{{ site.exif }}'>
-    {% assign items = site.static_files | sort: "name" %}
-    {% for image in items reversed %}
+  {% assign items = site.static_files | sort: "name" %}
+  {% for image in items reversed %}
     {% if image.path contains "fulls" %}
-    <article class="thumb">
+
+      {% assign is_film = false %}
+      {% if image.name contains "-film" %}
+        {% assign is_film = true %}
+      {% endif %}
+
+      <article class="thumb">
         <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
-            <img src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
-                 data-name="{{ image.name }}"/>
+          <img
+            src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}"
+            alt=""
+            data-name="{{ image.name }}"
+            {% if is_film %}data-film="true"{% endif %}
+          />
         </a>
-    </article>
+      </article>
+
     {% endif %}
-    {% endfor %}
+  {% endfor %}
 </div>
+
 
 
     <!-- Footer -->
