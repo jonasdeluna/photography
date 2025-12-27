@@ -198,11 +198,11 @@
       var $img = $(img);
 
       if ($img.data("film") === true || $img.data("film") === "true") {
-        return `
-        <div class="exif-data">
-          <i class="fas fa-film" aria-hidden="true"></i> Film
-        </div>
-      `;
+        return (
+          '<div class="exif-data">' +
+          '<i class="fas fa-film" aria-hidden="true"></i> Film' +
+          "</div>"
+        );
       }
 
       var exifMap = $main.data("exif") || {};
