@@ -2,19 +2,6 @@
 <html>
   <head>
     {% include header.html %}
-    <script>
-      const toggleBtn = document.getElementById("toggle-decommissioned");
-
-      if (toggleBtn) {
-        toggleBtn.addEventListener("click", function (e) {
-          e.preventDefault();
-
-          document.querySelectorAll(".thumb.decommissioned").forEach((el) => {
-            el.style.display = el.style.display === "none" ? "block" : "none";
-          });
-        });
-      }
-    </script>
   </head>
   <body class="is-preload">
     {{ content }} {% include footer.html %}

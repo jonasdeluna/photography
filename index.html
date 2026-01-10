@@ -10,11 +10,21 @@ layout: default
         <h1><a href="index.html"><strong>{{ site.header.title }}</strong> {{ site.header.subtitle }}</a></h1>
         <nav>
             <ul>
-                <li><a href="#footer">About&nbsp;&nbsp;<i class="fa fa-info-circle text-fg"></i></a></li>
-                <li>
-  <a href="#" id="toggle-decommissioned">
+            <li>
+  <a
+    href="#"
+    onclick="
+      event.preventDefault();
+      document.querySelectorAll('.thumb.decommissioned').forEach(el => {
+        el.style.display = el.style.display === 'none' ? '' : 'none';
+      });
+    "
+  >
     Decommissioned
   </a>
+</li>
+                <li><a href="#footer">About&nbsp;&nbsp;<i class="fa fa-info-circle text-fg"></i></a></li>
+                <li>
 </li>
             </ul>
         </nav>
