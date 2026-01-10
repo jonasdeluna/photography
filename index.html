@@ -11,34 +11,45 @@ layout: default
         <nav>
             <ul>
                 <li><a href="#footer">About&nbsp;&nbsp;<i class="fa fa-info-circle text-fg"></i></a></li>
+                <li>
+  <a href="#" id="toggle-decommissioned">
+    Decommissioned
+  </a>
+</li>
             </ul>
         </nav>
     </header>
 
 <div id="main" data-exif='{{ site.exif }}'>
   {% assign items = site.static_files | sort: "name" %}
-  {% for image in items reversed %}
-    {% if image.path contains "fulls" %}
 
-      {% assign is_film = false %}
-      {% if image.name contains "-film" %}
-        {% assign is_film = true %}
-      {% endif %}
+  {%- comment -%} ACTIVE IMAGES {%- endcomment -%}
+  {% for image in items reversed %}
+    {% if image.path contains "/fulls/" and image.path contains "/decommissioned/" == false %}
 
       <article class="thumb">
         <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
-          <img
-            src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}"
-            alt=""
-            data-name="{{ image.name }}"
-            {% if is_film %}data-film="true"{% endif %}
-          />
+          <img src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt="" />
+        </a>
+      </article>
+
+    {% endif %}
+  {% endfor %}
+
+  {%- comment -%} DECOMMISSIONED IMAGES (HIDDEN) {%- endcomment -%}
+  {% for image in items reversed %}
+    {% if image.path contains "decommissioned/fulls" %}
+
+      <article class="thumb decommissioned" style="display:none;">
+        <a href="{{ site.baseurl }}/assets/images/decommissioned/fulls/{{ image.name }}" class="image">
+          <img src="{{ site.baseurl }}/assets/images/decommissioned/thumbs/{{ image.name }}" alt="" />
         </a>
       </article>
 
     {% endif %}
   {% endfor %}
 </div>
+
 
 
 
