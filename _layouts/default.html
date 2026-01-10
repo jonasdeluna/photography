@@ -1,21 +1,22 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
+  <head>
     {% include header.html %}
     <script>
-  document.getElementById("toggle-decommissioned").addEventListener("click", function (e) {
-    e.preventDefault();
+      const toggleBtn = document.getElementById("toggle-decommissioned");
 
-    document.querySelectorAll(".thumb.decommissioned").forEach(el => {
-      el.style.display = el.style.display === "none" ? "block" : "none";
-    });
-  });
-</script>
-</head>
-<body class="is-preload">
+      if (toggleBtn) {
+        toggleBtn.addEventListener("click", function (e) {
+          e.preventDefault();
 
-    {{ content }}
-    
-    {% include footer.html %}
-</body>
+          document.querySelectorAll(".thumb.decommissioned").forEach((el) => {
+            el.style.display = el.style.display === "none" ? "block" : "none";
+          });
+        });
+      }
+    </script>
+  </head>
+  <body class="is-preload">
+    {{ content }} {% include footer.html %}
+  </body>
 </html>
