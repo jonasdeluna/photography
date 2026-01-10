@@ -23,4 +23,4 @@ social_urls:
 
 # Configure which exif data to display
 # Tag is the actual exif tag, icon is a fontawesome icon. Use JSON notation without line breaks
-exif: '[{"tag": "FNumber", "icon": "fas fa-dot-circle"}, {"tag": "ExposureTime", "icon": "fas fa-clock"}, {"tag": "ISOSpeedRatings", "icon": "fas fa-info-circle"}, {"tag": "FocalLength", "icon": "fas fa-ruler"}]'
+exif: '[{"tag": "FNumber", "icon": "fas fa-dot-circle"}, {"tag": "ExposureTime", "icon": "fas fa-clock"}, {"tag": "ISOSpeedRatings", "icon": "fas fa-info-circle"}, {"tag": "FocalLength", "icon": "fas fa-ruler"}, {"tag": "Model", "icon": "fas fa-camera"}]'
